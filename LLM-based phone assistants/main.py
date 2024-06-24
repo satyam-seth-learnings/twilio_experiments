@@ -19,6 +19,7 @@ async def incoming_call(request: Request):
         speechTimeout="auto",
         enhanced=True,
         action="/respond",
+        actionOnEmptyResult=True,
     )
     # TODO: Record audio
     return Response(content=str(response), media_type="application/xml")
@@ -30,10 +31,10 @@ async def respond(request: Request):
 
     params = await request.form()
     print(params)
-    user_speech = params.get("SpeechResult", "Oops! Sorry unable to process your voice")
+    user_speech = params.get("SpeechResult")
 
     resp = VoiceResponse()
-    resp.say(f"You said this, {user_speech}")
+    resp.say(f"You said this, {user_speech}" if user_speech else "please talk to me")
     resp.redirect(url="/incoming-call")
 
     return Response(content=str(resp), media_type="application/xml")
