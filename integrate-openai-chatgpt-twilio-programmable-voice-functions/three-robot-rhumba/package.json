@@ -9,7 +9,7 @@
   },
   "dependencies": {
     "@twilio/runtime-handler": "2.0.0",
-    "openai": "^3.3.0",
+    "openai": "^4.53.2",
     "twilio": "5.0.3"
   },
   "devDependencies": {
