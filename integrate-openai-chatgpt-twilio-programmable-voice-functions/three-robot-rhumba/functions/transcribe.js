@@ -8,7 +8,7 @@ exports.handler = function (context, event, callback) {
         twiml.say({
             voice: 'Polly.Joanna-Neural',
         },
-            "Hey! I'm Joanna, a chatbot created using Twilio and ChatGPT. What would you like to talk about today?"
+            "Hey! I'm Satyam Seth's assistant, a chatbot created using Twilio and ChatGPT. What would you like to talk about today?"
         );
     }
 
